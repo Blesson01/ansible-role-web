@@ -1,0 +1,12 @@
+---
+- name: Install httpd
+  yum:
+    name: httpd
+    state: present
+  notify: restart httpd
+
+- name: conf_httpd
+  template:
+   src: example.com.j2
+   dest: /etc/httpd/conf.d/example.com2.conf
+  notify: restart httpd

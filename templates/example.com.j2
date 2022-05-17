@@ -1,0 +1,13 @@
+<VirtualHost *:{{ http_port | default(80) }}>
+   DocumentRoot {{ document_root | default("/var/www/html") }}
+   Servername blesson.com
+
+<Directory {{ document_root | default("/var/www/html") }}>
+        Options FollowSymLinks
+        AllowOverride Limit Options FileInfo
+        DirectoryIndex index.php
+        Require all granted
+    </Directory>   
+
+
+</VirtualHost>

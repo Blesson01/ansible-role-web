@@ -1,0 +1,4 @@
+---
+ansibl_nodename: Test
+http_port: 80
+document_root: /var/www/keyshell

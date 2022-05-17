@@ -1,0 +1,12 @@
+---
+- name: Install apache2
+  apt:
+    name: apache2
+    state: present
+  notify: restart apache
+
+- name: conf_apache
+  template:
+   src: example.com.j2
+   dest: /etc/apache2/sites-enabled/example.com2.conf
+  notify: restart apache

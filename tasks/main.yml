@@ -1,0 +1,19 @@
+---
+- include_tasks: ubuntu.yml
+  when: ansible_facts['os_family'] == 'Debian'
+
+- include_tasks: centos.yml
+  when: ansible_facts['os_family'] == 'CentOS'
+
+- name: Public_html
+  ansible.builtin.file:
+    path: "{{ document_root }}"
+    state: directory
+    mode: 0755   
+
+- name: Index
+  template: 
+   src: index.php.j2
+   dest: "{{ document_root }}/index.php"
+   owner: www-data
+   mode: 0664 
